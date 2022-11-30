@@ -23,15 +23,18 @@ function Navbar({ isAuth, setIsAuth }) {
         <Link className="link-a" to="/">
           Home
         </Link>
-        <Link className="link-a" to="/create">
-          Create
-        </Link>
+
         {!isAuth ? (
           <Link className="link-a" to="/login">
             Login
           </Link>
         ) : (
-          <button onClick={logOut}>Log Out</button>
+          <>
+            <Link className="link-a" to="/create">
+              Create
+            </Link>
+            <button onClick={logOut}>Log Out</button>
+          </>
         )}
       </nav>
     </div>
