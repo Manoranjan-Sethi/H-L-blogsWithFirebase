@@ -1,5 +1,5 @@
 .post {
-  background-color: #1e447d;
+  background-color: #3f3f3f;
   color: #fff;
   border-radius: 7px;
   padding: 20px;
@@ -32,4 +32,18 @@
 
 .btn-hm:hover {
   background-color: green;
+}
+
+@media all and (min-width: 86px) and (max-width: 450px) {
+  .post {
+    padding: 8px;
+    margin: 10px;
+  }
+}
+
+@media all and (min-width: 451px) and (max-width: 850px) {
+  .post {
+    padding: 15px;
+    margin: 20px;
+  }
 }

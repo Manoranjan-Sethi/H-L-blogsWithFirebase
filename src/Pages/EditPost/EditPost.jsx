@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import "./CreatePost.css";
 import { db, auth } from "./../../firebase";
 import { useNavigate } from "react-router-dom";
 
-function CreatePost({ isAuth }) {
+function EditPost({ isAuth }) {
   const [title, setTitle] = useState("");
   const [posts, setPosts] = useState("");
 
@@ -33,7 +33,7 @@ function CreatePost({ isAuth }) {
   return (
     <div className="createPost">
       <div className="main">
-        <h2>Create Post</h2>
+        <h2>Edit Post</h2>
         <div className="flex">
           <h3>Title</h3>
           <input
@@ -54,4 +54,4 @@ function CreatePost({ isAuth }) {
   );
 }
 
-export default CreatePost;
+export default EditPost;

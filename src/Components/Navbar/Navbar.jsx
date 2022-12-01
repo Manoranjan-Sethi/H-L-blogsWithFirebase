@@ -19,24 +19,26 @@ function Navbar({ isAuth, setIsAuth }) {
         <h2>Blogs</h2>
       </Link>
 
-      <nav className="navbar">
-        <Link className="link-a" to="/">
-          Home
-        </Link>
-
-        {!isAuth ? (
-          <Link className="link-a" to="/login">
-            Login
+      <div>
+        <nav className="navbar">
+          <Link className="link-a" to="/">
+            Home
           </Link>
-        ) : (
-          <>
-            <Link className="link-a" to="/create">
-              Create
+
+          {!isAuth ? (
+            <Link className="link-a" to="/login">
+              Login
             </Link>
-            <button onClick={logOut}>Log Out</button>
-          </>
-        )}
-      </nav>
+          ) : (
+            <>
+              <Link className="link-a" to="/create">
+                Create
+              </Link>
+              <button onClick={logOut}>Log Out</button>
+            </>
+          )}
+        </nav>
+      </div>
     </div>
   );
 }

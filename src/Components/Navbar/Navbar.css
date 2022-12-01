@@ -1,7 +1,8 @@
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: #a65c23;
+  background-color: rgba(6, 4, 82, 0.674);
+  border-radius: 7px;
 }
 h2 {
   text-decoration: none;
@@ -9,8 +10,6 @@ h2 {
 .navbar {
   display: flex;
   gap: 10px;
-  /* justify-content: center;
-  text-align: center; */
   text-decoration: none;
   color: #fff;
 }
@@ -22,20 +21,11 @@ h2 {
   padding-left: 15px;
 }
 
-.link:hover {
-  background-color: #a78561;
-  padding-right: 10px;
-}
-
 .link-a {
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
   padding: 20px;
-}
-
-.link-a:hover {
-  background-color: #a78561;
 }
 
 button {
@@ -44,12 +34,18 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: cadetblue;
-}
-
-@media screen and (min-width: 480px) {
+@media all and (min-width: 86px) and (max-width: 450px) {
   .header {
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .link {
+    border-bottom: 2px solid #fff;
+  }
+  .link-a {
+    justify-content: center;
+    text-align: center;
+    margin-left: 25px;
   }
 }

@@ -8,6 +8,7 @@ import { useState } from "react";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+  // const [isAuth, setIsAuth] = useState(false);
 
   return (
     <div className="App">
