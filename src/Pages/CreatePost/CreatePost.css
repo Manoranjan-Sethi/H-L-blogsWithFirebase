@@ -47,8 +47,6 @@ button {
 }
 
 @media all and (min-width: 86px) and (max-width: 450px) {
-  .createPost {
-  }
   .flex {
     display: block;
     justify-content: center;
