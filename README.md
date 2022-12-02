@@ -27,6 +27,11 @@ Clone the project
   git clone https://github.com/Manoranjan-Sethi/H-L-blogsWithFirebase.git
 ```
 
+Go to folder
+
+```bash
+ cd H-L-blogsWithFirebase
+```
 Run the app
 
 ```bash
