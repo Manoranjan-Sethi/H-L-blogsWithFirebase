@@ -39,6 +39,7 @@ Run the app
 ![Screenshot_20221201_170732](https://user-images.githubusercontent.com/84295391/205054666-e6a98a7f-9edd-476d-bb67-d753ca41f96c.png)
 ![Screenshot_20221201_180937](https://user-images.githubusercontent.com/84295391/205055130-6d821635-d6a7-4a16-a448-66b9dc275458.png)
 ![Screenshot_20221201_180903](https://user-images.githubusercontent.com/84295391/205055030-231878e2-813a-4b68-ab6f-4ec94dbaf912.png)
+![Screenshot_20221202_160446](https://user-images.githubusercontent.com/84295391/205282042-4d7d2200-8bbf-4b64-92f5-27a941809d51.png)
 ![Screenshot_20221201_180806](https://user-images.githubusercontent.com/84295391/205054830-511cee8a-f957-4e18-bc82-b893ffeee9b8.png)
 
 ## Authors
