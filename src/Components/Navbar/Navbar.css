@@ -34,7 +34,7 @@ button {
   cursor: pointer;
 }
 
-@media all and (min-width: 86px) and (max-width: 450px) {
+@media all and (min-width: 50px) and (max-width: 450px) {
   .header {
     flex-direction: column;
     justify-content: center;

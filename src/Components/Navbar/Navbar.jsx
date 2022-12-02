@@ -3,13 +3,17 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 function Navbar({ isAuth, setIsAuth, setEditPost }) {
+  const navigate = useNavigate();
+
   function logOut() {
     signOut(auth).then(() => {
       localStorage.clear();
       setIsAuth(false);
-      window.location.pathname = "/login";
+      navigate("/login");
+      // window.location.pathname = "/login";
     });
   }
 

@@ -3,7 +3,6 @@
   top: 50%;
   left: 50%;
   width: 30em;
-  height: 18em;
   margin-top: -9em;
   margin-left: -15em;
   /* border: 1px solid #ccc; */
@@ -45,4 +44,21 @@ button {
   padding: 8px;
   border-radius: 8px;
   border: none;
+}
+
+@media all and (min-width: 86px) and (max-width: 450px) {
+  .createPost {
+  }
+  .flex {
+    display: block;
+    justify-content: center;
+    /* align-items: center; */
+    width: 70%;
+    /* border: 1px solid red; */
+    margin: auto;
+  }
+
+  .flex h3 {
+    text-align: left;
+  }
 }
