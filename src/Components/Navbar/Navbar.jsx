@@ -4,7 +4,7 @@ import "./Navbar.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 
-function Navbar({ isAuth, setIsAuth }) {
+function Navbar({ isAuth, setIsAuth, setEditPost }) {
   function logOut() {
     signOut(auth).then(() => {
       localStorage.clear();
@@ -31,7 +31,11 @@ function Navbar({ isAuth, setIsAuth }) {
             </Link>
           ) : (
             <>
-              <Link className="link-a" to="/create">
+              <Link
+                className="link-a"
+                onClick={() => setEditPost(null)}
+                to="/create"
+              >
                 Create
               </Link>
               <button onClick={logOut}>Log Out</button>

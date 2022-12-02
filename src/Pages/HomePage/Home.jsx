@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
+import {
+  getDocs,
+  collection,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import { db, auth } from "./../../firebase";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
-function Home({ isAuth }) {
+function Home({ isAuth, setEditPost }) {
   const [list, setList] = useState([]);
   // const [edit, setEdit] = useState(false);
   const postCollection = collection(db, "posts");
+  const navigate = useNavigate();
 
   const getPosts = async () => {
     const data = await getDocs(postCollection);
@@ -23,10 +31,8 @@ function Home({ isAuth }) {
   function handleDelete(id) {
     const delPost = doc(db, "posts", id);
     deleteDoc(delPost);
-    window.location.reload();
+    getPosts();
   }
-
-  // function handleEdit(id) {}
 
   useEffect(() => {
     getPosts();
@@ -48,7 +54,15 @@ function Home({ isAuth }) {
                 </div>
                 <div>
                   {isAuth && post.author.id === auth.currentUser.uid && (
-                    <button className="btn-hm">Edit</button>
+                    <button
+                      className="btn-hm"
+                      onClick={() => {
+                        setEditPost(post);
+                        navigate("/create");
+                      }}
+                    >
+                      Edit
+                    </button>
                   )}
                   {isAuth && post.author.id === auth.currentUser.uid && (
                     <button

@@ -8,15 +8,27 @@ import { useState } from "react";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-  // const [isAuth, setIsAuth] = useState(false);
+  const [editPost, setEditPost] = useState(null);
 
   return (
     <div className="App">
-      <Navbar isAuth={isAuth} setIsAuth={setIsAuth} />
+      <Navbar isAuth={isAuth} setIsAuth={setIsAuth} setEditPost={setEditPost} />
       <Routes>
-        <Route path="/" element={<Home isAuth={isAuth} />} />
+        <Route
+          path="/"
+          element={<Home isAuth={isAuth} setEditPost={setEditPost} />}
+        />
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
-        <Route path="/create" element={<CreatePost isAuth={isAuth} />} />
+        <Route
+          path="/create"
+          element={
+            <CreatePost
+              isAuth={isAuth}
+              editPost={editPost}
+              setEditPost={setEditPost}
+            />
+          }
+        />
       </Routes>
     </div>
   );

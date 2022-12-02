@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import "./CreatePost.css";
 import { db, auth } from "./../../firebase";
 import { useNavigate } from "react-router-dom";
 
-function CreatePost({ isAuth }) {
+function CreatePost({ isAuth, editPost, setEditPost }) {
   const [title, setTitle] = useState("");
   const [posts, setPosts] = useState("");
 
@@ -12,32 +12,48 @@ function CreatePost({ isAuth }) {
   const navigate = useNavigate();
 
   const generatePost = async () => {
-    await addDoc(postCollection, {
-      title,
-      posts,
-      author: {
-        name: auth.currentUser.displayName,
-        id: auth.currentUser.uid,
-        postId: `auth.currentUser.${Date.now()}`,
-      },
-    });
-    navigate("/");
+    if (editPost) {
+      const userDoc = doc(db, "posts", editPost.id);
+      const edits = { title, posts };
+      updateDoc(userDoc, edits);
+      setEditPost(null);
+      navigate("/");
+    } else {
+      await addDoc(postCollection, {
+        title,
+        posts,
+        author: {
+          name: auth.currentUser.displayName,
+          id: auth.currentUser.uid,
+          postId: `auth.currentUser.${Date.now()}`,
+        },
+      });
+      navigate("/");
+    }
   };
 
   useEffect(() => {
     if (!isAuth) {
       navigate("/login");
     }
-  }, []);
+    if (editPost) {
+      setTitle(editPost.title);
+      setPosts(editPost.posts);
+    } else {
+      setTitle("");
+      setPosts("");
+    }
+  }, [editPost]);
 
   return (
     <div className="createPost">
       <div className="main">
-        <h2>Create Post</h2>
+        <h2>{editPost ? "Edit" : "Create"} Post</h2>
         <div className="flex">
           <h3>Title</h3>
           <input
             placeholder="Title"
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
@@ -45,10 +61,11 @@ function CreatePost({ isAuth }) {
           <h3>Post</h3>
           <textarea
             placeholder="Post"
+            value={posts}
             onChange={(e) => setPosts(e.target.value)}
           />
         </div>
-        <button onClick={generatePost}>Submit</button>
+        <button onClick={generatePost}>{editPost ? "Edit" : "Create"}</button>
       </div>
     </div>
   );
