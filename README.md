@@ -32,6 +32,13 @@ Go to folder
 ```bash
  cd H-L-blogsWithFirebase
 ```
+
+Install packages
+
+```bash
+ npm i
+```
+
 Run the app
 
 ```bash
