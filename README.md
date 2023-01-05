@@ -1,6 +1,6 @@
 # Blog App
 
-- [Click here](https://fireblogs-6a558.web.app) to see preview of our project.
+- [Click here](https://fireblogs-6a558.web.app) to see preview of my project.
 
 ## Tech Stack
 
