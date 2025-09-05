@@ -1,0 +1,8 @@
+# Files to ignore when copying to Docker container
+node_modules
+build
+.git
+.gitignore
+.env
+*.md
+Dockerfile
