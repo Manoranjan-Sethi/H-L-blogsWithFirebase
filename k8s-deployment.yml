@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogs-app-deployment
+  labels:
+    app: blogs-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: blogs-app
+  template:
+    metadata:
+      labels:
+        app: blogs-app
+    spec:
+      containers:
+      - name: blogs-app
+        image: spartan0007/hlblogapp:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blogs-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: blogs-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
